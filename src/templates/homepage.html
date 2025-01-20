@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/homepage.css">
+    <title>CalendarApp</title>
+    <script src="https://kit.fontawesome.com/c56576f44b.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 110vh;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 61vh;
+            color: black;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .quote-text {
+            font-size: 1.4rem;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .quote-author {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Features Section */
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 50px 0;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: #00376f;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .feature-card p {
+            color: #777;
+            font-size: 1rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 60vh;
+                padding: 30px 20px;
+            }
+
+            .features-section {
+                padding: 30px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>Your Schedule, Simplified</h1>
+            <p>Effortlessly manage your time, plan your week, and stay on top of your goals.</p>
+            
+            <img src="../static/img/homepage.png" alt="CalendarApp">
+        </div>
+
+        <!-- Features Section -->
+        <div class="container">
+            <div class="features-section">
+                <div class="feature-card">
+                    <i class="fa-regular fa-calendar"></i>
+                    <h3>Manage Your Calendar</h3>
+                    <p>Organize your day and week with ease. Plan tasks, events, and more!</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-regular fa-clock"></i>
+                    <h3>Track Your Time</h3>
+                    <p>Stay productive and on schedule with our time-tracking features.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-tasks"></i>
+                    <h3>Task Management</h3>
+                    <p>Break down your goals and tasks into manageable pieces with ease.</p>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

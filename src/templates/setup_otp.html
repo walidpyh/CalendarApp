@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+        <div class="text-center">
+            <h1>Set up Two-Factor Authentication</h1>
+
+            <p>Scan the QR code with Google Authenticator (or any TOTP app).</p>
+
+            <!-- Display the QR code -->
+            <img src="data:image/png;base64,{{ qr_code }}" alt="QR Code" style="max-width: 100%; height: auto;">
+            <form method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <label for="otp">Enter OTP from Google Authenticator:</label>
+                <input type="text" id="otp" name="otp" required>
+                <button type="submit" class="btn btn-primary">Verify OTP</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

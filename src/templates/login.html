@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/login.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+        {{ form.csrf_token }}
+        <form action="" method="post" novalidate>
+            {{ form.hidden_tag() }}
+            <h1>Log in to your account</h1>
+            <div class="input-box">
+              {{ form.email.label }}
+              {{ form.email(class="form-control", type="email") }}
+              {% for error in form.email.errors %}
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+              {% endfor %}
+            </div>
+            <br>
+            <div class="input-box">
+              {{ form.password.label }}
+              {{ form.password(class="form-control", type="password") }}
+              {% for error in form.password.errors %}
+                <div class="alert alert-danger" role="alert">
+                  {{ error }}
+                </div>
+              {% endfor %}
+            </div>
+            <div class="remember">{{ form.remember_me() }} {{ form.remember_me.label }}</div>
+            <div class="sign-up-redirect" style="margin:10px 10px 25px">Don`t have an account yet? <a href="/register">Sign Up</a></div>
+            <div class="g-recaptcha" data-sitekey="6LdPZrsqAAAAALBetUEt_FV6NS8sqr_E5rsdWvw8"></div>
+            <br>
+            <div class="submit">{{ form.submit(type="submit", class="button") }}</div>
+            <div style="color:red">{{ message }}</div>
+        </form>
+    {% endblock %}
+</body>
+</html>

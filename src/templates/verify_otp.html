@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+        <div class="text-center">
+            <h1>Two-Factor Authentication</h1>
+            <p>Please enter the OTP from your authenticator app.</p>
+
+            <form method="POST">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <label for="otp">OTP:</label>
+                <input type="text" id="otp" name="otp" required>
+                <button type="submit" class="btn btn-primary">Verify OTP</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

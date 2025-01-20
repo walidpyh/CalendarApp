@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../static/css/register.css" />
+    <title>Register</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+    <div class='new_account'>
+          <h1>Create a new account</h1>
+        <!-- CSRF Protection -->
+        {{ form.csrf_token }}
+
+      <form action="" method="post">
+        {{ form.hidden_tag() }}
+
+        <div class="input-box">
+          {{ form.name.label }}
+          {{ form.name(class="form-control", type="string") }}
+          {% for error in form.name.errors %}
+            <div class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="input-box">
+          {{ form.email.label }}
+          {{ form.email(class="form-control", type="email") }}
+          {% for error in form.email.errors %}
+            <div class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="input-box">
+          {{ form.password.label }}
+          {{ form.password(class="form-control", type="password") }}
+          {% for error in form.password.errors %}
+            <div class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="input-box">
+          {{ form.password_again.label }}
+          {{ form.password_again(class="form-control", type="password") }}
+          {% for error in form.password_again.errors %}
+            <div class="alert alert-danger" role="alert">
+              {{ error }}
+            </div>
+          {% endfor %}
+        </div>
+        <div class="input-box">
+            {{ form.bday.label }}<br>
+            {{ form.bday(class="form-control", type="date") }}
+            {% for error in form.bday.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </div>
+            <div class="remember">{{ form.remember_me() }} {{ form.remember_me.label }}</div>
+            <div class="log-in-redirect" style="margin:10px 10px 10px">Already have an account? <a href="/login">Log In</a></div>
+            <div class="g-recaptcha" data-sitekey="6LdPZrsqAAAAALBetUEt_FV6NS8sqr_E5rsdWvw8"></div>
+            <div class="input-box button">{{ form.submit(type="submit", class="button") }}
+            <div style="color:red">{{ message }}</div></div>
+
+      </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

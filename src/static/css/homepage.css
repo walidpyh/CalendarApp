@@ -1,0 +1,73 @@
+.image-container {
+    font-family: 'Bradley Hand', cursive;
+    color: #fff
+}
+
+.image-container img {
+    display: block;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
+    width: 100vw;
+    height: 80vh;
+    object-fit: cover;
+}
+
+.centered-text {
+    text-align: center;
+    position: absolute;
+    color: #fff;
+    left: 50%;
+    top: 40vh;
+    transform: translateX(-50%);
+    font-size: 50px
+}
+
+.quote-text {
+    text-align: left;
+    position: absolute;
+    left: 5%;
+    top: 84vh;
+    color: #fff;
+}
+
+.abilities {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 80px;
+}
+
+.abilities .usage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.abilities .usage i {
+    width: fit-content;
+    font-size: 50px;
+    color: #1f1f2e;
+    border-radius: 50%;
+    border: 2px solid #1f1f2e;
+    padding: 12px;
+}
+
+.abilities .usage .usage-heading {
+    font-size: 20px;
+    color: #1f1f2e;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.abilities .usage .usage-text {
+    font-size: 15px;
+    color: #33334d;
+    margin: 10px 0;
+    text-align: center
+}

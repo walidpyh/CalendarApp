@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container_form">
+        <h1>Add event</h1>
+        <form action="/calendar_add_event" method="POST">
+            <div>
+                {{ form.csrf_token }}
+            </div>
+
+            <div class="box">
+                {{ form.title.label(class="form-label", for="title") }}
+                {{ form.title(class="form-control") }}
+            </div>
+
+            <div class="container_datetime">
+                <div class="box">
+                {{ form.start_date.label }}
+                {{ form.start_date(class="form-control", type="date") }}
+                </div>
+                    <div class="box">
+                    {{ form.start_time.label }}
+                      {{ form.start_time(class="form-control", type="time") }}
+                </div>
+            </div>
+
+            <div class="container_datetime">
+                <div class="box">
+                     {{ form.end_date.label }}
+                     {{ form.end_date(class="form-control", type="date") }}
+                </div>
+                <div class="box">
+                    {{ form.end_time.label }}
+                      {{ form.end_time(class="form-control", type="time") }}
+                </div>
+            </div>
+
+            <div class="box">
+                <label>Сhoose the color of the event</label>
+                {{ form.color.label(class="form-label", for="color") }}
+                {{ form.color(class="form-control", type="color", list="colors", id="color", value='#E7ECFF') }}
+                <datalist id="colors">
+                    <option value="#FED6BC"></option>
+                    <option value="#FDEED9"></option>
+                    <option value="#FFFADD"></option>
+                    <option value="#F6FFF8"></option>
+                    <option value="#C3FBD8"></option>
+                    <option value="#E7ECFF"></option>
+                    <option value="#B5F2EA"></option>
+                    <option value="#DEF7FE"></option>
+                    <option value="#C6D8FF"></option>
+                </datalist>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="btn btn-outline-dark">Submit</button>
+                <a title="Cancel" class="btn btn-outline-dark" href="{{ url_for('event.calendar') }}" role="button">Cancel</a>
+            </div>
+            <div style="color:red">{{ message }}</div>
+        </form>
+
+    </div>
+{% endblock %}
