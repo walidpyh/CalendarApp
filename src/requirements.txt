@@ -7,5 +7,11 @@ flask~=3.0.0
 pillow~=10.2.0
 email_validator~=2.1
 requests~=2.31.0
-pyotp
-qrcode[pil]
+pyotp~=2.9.0
+qrcode[pil]~=7.4.2
+passlib[argon2]~=1.7.4
+safety~=3.0.0
+bandit~=1.7.5
+bcrypt~=4.0.1
+bleach~=6.1.0
+secure~=0.3.0
